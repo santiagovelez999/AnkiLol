@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Anki de Idiomas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(() => {
+      console.log("Service Worker registrado ✅");
+    });
+  }
+</script>
+
+<body>
+  <h1>📚 AnkiLol Idiomas</h1>
+
+  <div class="menu">
+    <button onclick="showModule('study')">Estudiar</button>
+    <button onclick="showModule('add')">Agregar Palabra</button>
+  </div>
+
+  <!-- Módulo Estudiar -->
+  <div id="study" class="module">
+    <div class="flashcard" id="flashcard">
+      <div class="card-inner">
+        <div class="card-front" id="front">Word</div>
+        <div class="card-back" id="back">Traducción</div>
+      </div>
+    </div>
+    <button class="next-btn" onclick="nextCard()">➡️ Siguiente</button>
+  </div>
+
+  <!-- Módulo Agregar -->
+  <div id="add" class="module">
+    <h2>Agregar nueva palabra</h2>
+    <form onsubmit="addCard(event)">
+      <input type="text" id="newWord" placeholder="Palabra en inglés" required>
+      <input type="text" id="newTranslation" placeholder="Traducción" required>
+      <button type="submit">Agregar</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="persistence.js"></script>
+</body>
+</html>
