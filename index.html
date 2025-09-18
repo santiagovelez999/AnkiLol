@@ -7,6 +7,7 @@
   <title>Mini Anki de Idiomas</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196f3">
 </head>
 <script>
   if ("serviceWorker" in navigator) {
@@ -47,5 +48,14 @@
 
   <script src="script.js"></script>
   <script src="persistence.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js")
+        .then(() => console.log("Service Worker registrado ✅"))
+        .catch(err => console.log("Error en Service Worker:", err));
+    }
+  </script>
+
 </body>
+
 </html>
