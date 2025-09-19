@@ -1,5 +1,6 @@
-
 let currentIndex = 0;
+const HISTORY_SIZE = 3; // tamaño de historial, ajusta a tu gusto
+let recentHistory = [];
 
 const flashcard = document.getElementById("flashcard");
 const front = document.getElementById("front");
@@ -17,12 +18,28 @@ function showModule(module) {
     document.getElementById(module).style.display = "block";
 }
 
-// Pasar a la siguiente carta
+// Pasar a la siguiente carta (al azar evitando repeticiones frecuentes)
 function nextCard() {
     if (cards.length === 0) return;
-    currentIndex = (currentIndex + 1) % cards.length;
+
+    let newIndex;
+    let attempts = 0;
+    do {
+        newIndex = Math.floor(Math.random() * cards.length);
+        attempts++;
+        // si intentó demasiado, relajar la condición
+        if (attempts > 10) break;
+    } while ((newIndex === currentIndex || recentHistory.includes(newIndex)) && cards.length > 1);
+
+    currentIndex = newIndex;
     updateCard();
     flashcard.classList.remove("flipped"); // reinicia a frente
+
+    // actualizar historial
+    recentHistory.push(currentIndex);
+    if (recentHistory.length > HISTORY_SIZE) {
+        recentHistory.shift(); // mantener tamaño máximo
+    }
 }
 
 // Actualizar carta en pantalla
