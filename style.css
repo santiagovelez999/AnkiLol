@@ -1,176 +1,193 @@
- body {
-   font-family: 'Segoe UI', sans-serif;
-   background: linear-gradient(to right, #ffecd2, #fcb69f);
-   margin: 0;
-   padding: 0;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: flex-start;
-   min-height: 100vh;
- }
+/* General */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
 
- h1 {
-   text-align: center;
-   margin: 20px 0;
-   color: #333;
- }
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
 
- .module {
-   background: white;
-   padding: 30px;
-   border-radius: 20px;
-   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-   max-width: 600px;
-   width: 90%;
-   text-align: center;
-   animation: fadeIn 0.5s;
- }
+/* Módulo */
+.module {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
 
- .flashcard {
-   width: 100%;
-   max-width: 400px;
-   height: 250px;
-   perspective: 1000px;
-   margin: 0 auto 20px auto;
- }
+/* Flashcards */
+.flashcard {
+  width: 100%;
+  max-width: 360px;
+  height: 220px;
+  perspective: 1000px;
+  margin: 0 auto 20px auto;
+}
 
- .card-inner {
-   position: relative;
-   width: 100%;
-   height: 100%;
-   transition: transform 0.8s;
-   transform-style: preserve-3d;
-   cursor: pointer;
- }
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
 
- .flashcard.flipped .card-inner {
-   transform: rotateY(180deg);
- }
+.flashcard.flipped .card-inner {
+  transform: rotateY(180deg);
+}
 
- .card-front,
- .card-back {
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   backface-visibility: hidden;
-   border-radius: 15px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 28px;
-   font-weight: bold;
-   color: white;
- }
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
- .card-front {
-   background: #2196F3;
- }
+.card-front {
+  background: #2196F3;
+}
 
- .card-back {
-   background: #FF5722;
-   transform: rotateY(180deg);
- }
+.card-back {
+  background: #FF5722;
+  transform: rotateY(180deg);
+}
 
- .next-btn {
-   background: linear-gradient(45deg, #ff6f61, #ff9800);
-   color: white;
-   border: none;
-   padding: 14px 30px;
-   font-size: 18px;
-   font-weight: bold;
-   border-radius: 12px;
-   cursor: pointer;
-   transition: all 0.3s ease;
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-   margin-top: 10px;
- }
+/* Botón */
+.next-btn {
+  background: linear-gradient(45deg, #ff6f61, #ff9800);
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
 
- .next-btn:hover {
-   background: linear-gradient(45deg, #ff5722, #ff9800);
-   transform: scale(1.05);
-   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
- }
+.next-btn:hover {
+  background: linear-gradient(45deg, #ff5722, #ff9800);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
 
- .next-btn:active {
-   transform: scale(0.95);
- }
+.next-btn:active {
+  transform: scale(0.95);
+}
 
- @keyframes fadeIn {
-   from {
-     opacity: 0;
-     transform: translateY(20px);
-   }
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-   to {
-     opacity: 1;
-     transform: translateY(0);
-   }
- }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
- @media (max-width: 600px) {
-   .flashcard {
-     height: 200px;
-   }
+/* Menú */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-   .card-front,
-   .card-back {
-     font-size: 22px;
-   }
- }
+.menu label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
 
- .menu {
-   display: flex;
-   align-items: center;
-   gap: 12px;
-   margin: 20px 0;
-   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
- }
+.category-select {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border: 2px solid #4a90e2;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 220px;
+}
 
- .menu label {
-   font-size: 1rem;
-   font-weight: 600;
-   color: #333;
- }
+.category-select:hover {
+  border-color: #357abd;
+  background: #f1f8ff;
+}
 
- .category-select {
-   padding: 8px 14px;
-   font-size: 1rem;
-   border: 2px solid #4a90e2;
-   border-radius: 8px;
-   background: #f9f9f9;
-   color: #333;
-   cursor: pointer;
-   transition: all 0.3s ease;
- }
+.category-select:focus {
+  outline: none;
+  border-color: #2c6fbb;
+  box-shadow: 0 0 6px rgba(42, 125, 228, 0.4);
+}
 
- .category-select:hover {
-   border-color: #357abd;
-   background: #f1f8ff;
- }
+/* Opciones */
+.category-select option {
+  padding: 10px;
+  font-size: 1rem;
+  background: #fff;
+  color: #333;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+}
 
- .category-select:focus {
-   outline: none;
-   border-color: #2c6fbb;
-   box-shadow: 0 0 6px rgba(42, 125, 228, 0.4);
- }
+.category-select option:checked {
+  background: #4a90e2;
+  color: #fff;
+  font-weight: 600;
+}
 
- .category-select option {
-   padding: 10px;
-   font-size: 1rem;
-   background: #fff;
-   color: #333;
-   font-weight: 500;
-   border-bottom: 1px solid #eee;
- }
+/* Responsive */
+@media (max-width: 600px) {
+  .flashcard {
+    height: 180px;
+  }
 
- .category-select option:hover {
-   background: #e6f0ff;
-   color: #000;
- }
+  .card-front,
+  .card-back {
+    font-size: 1rem;
+  }
 
- .category-select option:checked {
-   background: #4a90e2;
-   color: #fff;
-   font-weight: 600;
- }
+  .next-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

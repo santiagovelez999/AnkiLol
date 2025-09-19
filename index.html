@@ -13,16 +13,13 @@
 <body>
   <h1>📚 AnkiLol Languages</h1>
 
+  <!-- Menú categorías -->
   <div class="menu">
     <label for="categorySelect">Select category:</label>
-    <select id="categorySelect" class="category-select">
-      <option value="words">Words</option>
-      <option value="greetings">Greetings</option>
-      <option value="colors">Colors</option>
-      <option value="animals">Animals</option>
-    </select>
+    <select id="categorySelect" class="category-select"></select>
   </div>
 
+  <!-- Módulo estudio -->
   <div id="study" class="module">
     <div class="flashcard" id="flashcard">
       <div class="card-inner">
@@ -33,8 +30,8 @@
     <button class="next-btn">➡️ Following</button>
   </div>
 
+  <!-- Scripts -->
   <script src="persistence.js"></script>
   <script src="script.js"></script>
 </body>
-
 </html>
