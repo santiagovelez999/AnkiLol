@@ -9,16 +9,19 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#2196f3">
 </head>
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js").then(() => {
-      console.log("Service Worker registrado ✅");
-    });
-  }
-</script>
 
 <body>
-  <h1>📚 AnkiLol Idiomas</h1>
+  <h1>📚 AnkiLol Languages</h1>
+
+  <div class="menu">
+    <label for="categorySelect">Select category:</label>
+    <select id="categorySelect" class="category-select">
+      <option value="words">Words</option>
+      <option value="greetings">Greetings</option>
+      <option value="colors">Colors</option>
+      <option value="animals">Animals</option>
+    </select>
+  </div>
 
   <div id="study" class="module">
     <div class="flashcard" id="flashcard">
@@ -27,18 +30,11 @@
         <div class="card-back" id="back">Bienvenido</div>
       </div>
     </div>
-    <button class="next-btn" onclick="nextCard()">➡️ Siguiente</button>
+    <button class="next-btn">➡️ Following</button>
   </div>
 
-  <script src="script.js"></script>
   <script src="persistence.js"></script>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js")
-        .then(() => console.log("Service Worker registrado ✅"))
-        .catch(err => console.log("Error en Service Worker:", err));
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
